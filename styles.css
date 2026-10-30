@@ -1214,3 +1214,11 @@ body {
   filter: brightness(0) saturate(100%) invert(98%) sepia(8%) saturate(399%) hue-rotate(323deg) brightness(102%) contrast(97%) !important;
 }
 
+/* ==========================================================================
+   ILUSTRACIÓN DEL INDIO (FORZAR TONO CLARO ORIGINAL)
+   ========================================================================== */
+.rsvp-section-green .rsvp-illustration {
+  filter: brightness(1.2) contrast(1.1) !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+}
