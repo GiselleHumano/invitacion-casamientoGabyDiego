@@ -1,4 +1,10 @@
-
+html {
+  color-scheme: light dark;
+}
+/* O específicamente para bloquear la inversión automática de colores en Samsung/Android */
+img, svg, .car-illustration, .event-illustration, .timeline-img, .dresscode-illustration, .gifts-illustration {
+  color-scheme: light;
+}
 /* ==========================================================================
    1. VARIABLES
    ========================================================================== */
