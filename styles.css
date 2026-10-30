@@ -5,12 +5,12 @@
 :root {
   /* Colores */
   --green-bg: #2d4734;
-  --green-hover: #203325;
-  --cream-bg: #f5f3e9;
+  --green-hover: #2d4734;
+  --cream-bg: #fffef6;
   --white: #ffffff;
-  --text-cream: #f5f3e9;
+  --text-cream: #fffef6;
   --text-dark: #2d4734;
-  --text-muted: #555;
+  --text-muted: #2d4734;
 
   /* Tipografías */
   --font-sans: 'Montserrat', sans-serif;
@@ -19,7 +19,7 @@ color-scheme: only light;
 }
    html {
 color-scheme: only light;
-     background-color: #f5f3e9;
+     background-color: #fffef6;
    }
 .reveal {
   opacity: 0;
@@ -54,15 +54,11 @@ body {
 /* ==========================================================================
    3. LAYOUT GENERAL
    ========================================================================== */
-html, body {
-  background-color: #fffdf3 !important; 
-  color-scheme: only light !important;
-}
 
 /* Fuerza a que el navegador de Samsung no altere los colores de los elementos */
 * {
   -webkit-print-color-adjust: exact;
-  color-adjust: exact;
+  print-color-adjust: exact;
 }
 
 /* Contenedor adaptable de borde a borde */
@@ -279,13 +275,16 @@ html, body {
 }
 
 .car-illustration {
+  color:var(--green-bg);
   width: 100%;
   margin: 5rem 0;
   height: auto;
   object-fit: contain;
 }
 
-
+.car-illustration path {
+  fill: var(--green-bg); /* O stroke: var(--green-bg); según cómo esté dibujado */
+}
 /* --------------------------------------------------------------------------
    5.2 CONTADOR
    -------------------------------------------------------------------------- */
@@ -1186,5 +1185,36 @@ html, body {
 
   .countdown-container {
     gap: 18px;
+  }
+}
+
+.car-illustration, 
+.event-illustration, 
+.timeline-img, 
+.dresscode-illustration, 
+.gifts-illustration {
+  filter: brightness(0) saturate(100%) invert(24%) sepia(23%) saturate(614%) hue-rotate(94deg) brightness(94%) contrast(92%);
+}
+
+.rsvp-section-green .rsvp-illustration {
+  filter: brightness(0) saturate(100%) invert(98%) sepia(8%) saturate(399%) hue-rotate(323deg) brightness(102%) contrast(97%);
+}
+
+/* ==========================================================================
+   10. ADAPTACIÓN A MODO OSCURO (Mobile / Samsung Dark Mode)
+   ========================================================================== */
+@media (prefers-color-scheme: dark) {
+  /* Las ilustraciones estándar pasan a verse claras (#fffef6) sobre los fondos oscuros */
+  .car-illustration, 
+  .event-illustration, 
+  .timeline-img, 
+  .dresscode-illustration, 
+  .gifts-illustration {
+    filter: brightness(0) saturate(100%) invert(98%) sepia(8%) saturate(399%) hue-rotate(323deg) brightness(102%) contrast(97%);
+  }
+
+  /* La ilustración de RSVP (que en modo oscuro pasará a tener fondo claro invertido) pasa a color verde oscuro */
+  .rsvp-section-green .rsvp-illustration {
+    filter: brightness(0) saturate(100%) invert(24%) sepia(23%) saturate(614%) hue-rotate(94deg) brightness(94%) contrast(92%);
   }
 }
