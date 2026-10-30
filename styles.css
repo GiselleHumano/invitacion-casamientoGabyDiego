@@ -1208,20 +1208,21 @@ position: absolute;
 }
 
 /* ==========================================================================
-   ILUSTRACIONES ADAPTATIVAS (CLARO Y OSCURO)
+   ILUSTRACIONES CON COLOR INSTITUCIONAL Y ADAPTACIÓN OSCURA
    ========================================================================== */
 
-/* Por defecto (Modo Claro): Se ven con su color original oscuro/negro */
+/* 1. MODO CLARO: Forzamos el verde institucional exacto (#36533f) */
 .car-illustration, 
 .event-illustration, 
 .timeline-img, 
 .dresscode-illustration, 
 .gifts-illustration {
-  filter: none !important;
+  /* Este filtro convierte cualquier SVG negro/gris a tu verde institucional exacto */
+  filter: brightness(0) saturate(100%) invert(31%) sepia(21%) saturate(692%) hue-rotate(101deg) brightness(94%) contrast(89%) !important;
   opacity: 1 !important;
 }
 
-/* Cuando el celu o el navegador fuerzan el Modo Oscuro: Se invierten a blanco automáticamente */
+/* 2. MODO OSCURO: Se invierten automáticamente a blanco */
 @media (prefers-color-scheme: dark) {
   .car-illustration, 
   .event-illustration, 
