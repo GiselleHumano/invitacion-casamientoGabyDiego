@@ -77,26 +77,26 @@ if (musicToggle && bgMusic) {
 // ==========================================
 // 3. COPIAR ALIAS AL PORTAPAPELES
 // ==========================================
-const btnCopyAlias = document.getElementById('btn-copy-alias');
+const copyButtons = document.querySelectorAll('.btn-copy');
 const copyMessage = document.getElementById('copy-message');
 
-if (btnCopyAlias) {
-  btnCopyAlias.addEventListener('click', () => {
-    const aliasEl = document.getElementById('alias-text');
-    if (aliasEl) {
-      const aliasText = aliasEl.innerText;
-      navigator.clipboard.writeText(aliasText).then(() => {
-        if (copyMessage) copyMessage.classList.add('show');
-        setTimeout(() => {
-          if (copyMessage) copyMessage.classList.remove('show');
-        }, 2500);
-      }).catch(err => {
-        console.error('Error al copiar: ', err);
-      });
-    }
+copyButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const alias = button.getAttribute('data-alias');
+    
+    navigator.clipboard.writeText(alias).then(() => {
+      // Muestra el mensaje
+      copyMessage.style.display = 'block';
+      
+      // Lo oculta a los 2 segundos
+      setTimeout(() => {
+        copyMessage.style.display = 'none';
+      }, 2000);
+    }).catch(err => {
+      console.error('Error al copiar: ', err);
+    });
   });
-}
-
+});
 // ==========================================
 // 4. CARRUSEL DE INSTAGRAM
 // ==========================================
@@ -149,3 +149,36 @@ if (btnBackToTop) {
     });
   });
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Seleccionamos los elementos principales de toda la web que querés que aparezcan con scroll
+  // (Podés agregar o quitar etiquetas de esta lista según lo que tenga tu HTML)
+  const elementosAGuiar = document.querySelectorAll('section, article, .gifts-card, .bank-details-box, h2, img');
+
+  // Les agregamos la clase 'reveal' de forma automática a todos
+  elementosAGuiar.forEach(el => {
+    el.classList.add('reveal');
+  });
+
+  // Configuramos el observador
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.15 // Se dispara cuando el 15% del elemento es visible
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        // Dejamos de observarlo una vez que ya apareció para optimizar rendimiento
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Ponemos a observar cada elemento
+  elementosAGuiar.forEach(el => {
+    observer.observe(el);
+  });
+});

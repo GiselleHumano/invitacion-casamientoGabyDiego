@@ -17,7 +17,19 @@
   --font-script: 'Alex Brush', cursive;
 }
 
+/* Estado inicial: invisible y un poquito corrido hacia abajo */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
 
+/* Estado activo: cuando entra en pantalla */
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
 /* ==========================================================================
    2. RESET Y BASE
    ========================================================================== */
@@ -773,13 +785,13 @@ body {
 
 /* Aviso de copiado exitoso */
 .copy-toast {
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--green-bg);
-  margin-top: 10px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  display: none; /* Oculto por defecto */
+  margin-top: 15px;
+  padding: 10px;
+  color: #00351f;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 14px;
 }
 
 .copy-toast.show {
