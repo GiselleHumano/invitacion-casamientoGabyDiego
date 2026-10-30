@@ -15,9 +15,12 @@
   /* Tipografías */
   --font-sans: 'Montserrat', sans-serif;
   --font-script: 'Alex Brush', cursive;
-  color-scheme: light dark;
+color-scheme: only light;
 }
-
+   html {
+color-scheme: only light;
+     background-color: #f5f3e9;
+   }
 .reveal {
   opacity: 0;
   transform: translateY(30px);
@@ -51,6 +54,16 @@ body {
 /* ==========================================================================
    3. LAYOUT GENERAL
    ========================================================================== */
+html, body {
+  background-color: #fffdf3 !important; 
+  color-scheme: only light !important;
+}
+
+/* Fuerza a que el navegador de Samsung no altere los colores de los elementos */
+* {
+  -webkit-print-color-adjust: exact;
+  color-adjust: exact;
+}
 
 /* Contenedor adaptable de borde a borde */
 .mobile-wrapper {
@@ -1173,25 +1186,5 @@ body {
 
   .countdown-container {
     gap: 18px;
-  }
-}
-
-/* Siempre modo claro (el navegador no puede oscurecer la página) */
-html {
-  color-scheme: light dark;
-  background-color: #f5f3e9;
-}
-
-/* ==========================================================================
-   MODO OSCURO "CLARO": la página declara que soporta modo oscuro (para que
-   Samsung Internet y otros no la oscurezcan por su cuenta), pero en modo
-   oscuro mantiene exactamente el mismo diseño claro.
-   ========================================================================== */
-@media (prefers-color-scheme: dark) {
-  html,
-  body,
-  .mobile-wrapper {
-    background-color: #f5f3e9;
-    color: #2d4734;
   }
 }
