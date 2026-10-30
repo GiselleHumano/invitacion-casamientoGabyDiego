@@ -11,6 +11,8 @@ img, svg, .car-illustration, .event-illustration, .timeline-img, .dresscode-illu
 :root {
   /* Colores */
   --green-bg: #36533f;
+  --green-rgb: 54, 83, 63;      /* mismo verde, para transparencias */
+  --cream-rgb: 255, 254, 246;   /* mismo crema, para transparencias */
   --green-hover: #36533f;
   --cream-bg: #fffef6;
   --white: #ffffff;
@@ -25,7 +27,7 @@ color-scheme: only light;
 }
    html {
 color-scheme: only light;
-     background-color: #fffef6;
+     background-color: var(--cream-bg);
    }
 .reveal {
   opacity: 0;
@@ -122,7 +124,7 @@ body {
 }
 
 .btn-secondary:hover {
-  background-color: rgba(45, 71, 52, 0.08);
+  background-color: rgba(var(--green-rgb), 0.08);
 }
 
 /* --- Ubicación (marco / outline) --- */
@@ -571,7 +573,7 @@ body {
   width: 100%;
   text-align: center;
   padding: 40px 20px;
-  border: 1.5px solid rgba(45, 71, 52, 0.2);
+  border: 1.5px solid rgba(var(--green-rgb), 0.2);
   border-radius: 16px;
   background-color: transparent;
   display: flex;
@@ -621,7 +623,7 @@ body {
 
 /* Aviso especial para el color blanco */
 .dresscode-warning {
-  border-top: 1px dashed rgba(45, 71, 52, 0.3);
+  border-top: 1px dashed rgba(var(--green-rgb), 0.3);
   padding-top: 15px;
   width: 80%;
 }
@@ -697,7 +699,7 @@ body {
 
 /* Aviso sin niños */
 .rsvp-kids-policy {
-  border-top: 1px solid rgba(245, 243, 233, 0.25);
+  border-top: 1px solid rgba(var(--cream-rgb), 0.25);
   padding-top: 30px;
   width: 100%;
 }
@@ -777,7 +779,7 @@ body {
 .bank-details-box {
   width: 100%;
   max-width: 360px;
-  background-color: rgba(45, 71, 52, 0.05);
+  background-color: rgba(var(--green-rgb), 0.05);
   border-radius: 12px;
   padding: 16px 20px;
   margin-bottom: 20px;
@@ -811,7 +813,7 @@ body {
   display: none; /* Oculto por defecto */
   margin-top: 15px;
   padding: 10px;
-  color: #00351f;
+  color: var(--text-dark);
   text-align: center;
   border-radius: 5px;
   font-size: 14px;
@@ -838,7 +840,7 @@ body {
   width: 100%;
   text-align: center;
   padding: 40px 20px;
-  border: 1.5px solid rgba(45, 71, 52, 0.2);
+  border: 1.5px solid rgba(var(--green-rgb), 0.2);
   border-radius: 16px;
   background-color: transparent;
   display: flex;
@@ -957,7 +959,7 @@ body {
 .dot {
   width: 8px;
   height: 8px;
-  background-color: rgba(45, 71, 52, 0.3);
+  background-color: rgba(var(--green-rgb), 0.3);
   border-radius: 50%;
   transition: background-color 0.3s;
 }
@@ -1041,6 +1043,8 @@ body {
 /* ==========================================================================
    6. DIVISORES DE ONDAS (PROPORCIÓN EXACTA Y COLOR FIJO)
    ========================================================================== */
+/* Las ondas ahora son un bloque de color (var(--green-bg)) recortado con una máscara.
+   Así usan EXACTAMENTE el mismo color y el mismo mecanismo que la cabecera y los pies verdes. */
 .wave-top,
 .wave-bottom {
   position: absolute;
@@ -1048,8 +1052,9 @@ body {
   width: 100%;
   height: 20px;
   line-height: 0;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 20'%3E%3Cpath d='M0 20 C10 20 10 0 20 0 S30 20 40 20 Z' fill='%2336533f'/%3E%3C/svg%3E") repeat-x bottom / 40px 20px !important;
-  /* Forzamos a que el renderizado de Samsung no altere este fondo específico */
+  background-color: var(--green-bg);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 20'%3E%3Cpath d='M0 20 C10 20 10 0 20 0 S30 20 40 20 Z'/%3E%3C/svg%3E") repeat-x bottom / 40px 20px;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 20'%3E%3Cpath d='M0 20 C10 20 10 0 20 0 S30 20 40 20 Z'/%3E%3C/svg%3E") repeat-x bottom / 40px 20px;
   mix-blend-mode: normal !important;
   filter: none !important;
 }
