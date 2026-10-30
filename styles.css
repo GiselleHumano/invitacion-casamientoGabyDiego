@@ -1175,3 +1175,138 @@ body {
     gap: 18px;
   }
 }
+
+
+/* ==========================================================================
+   10. MODO OSCURO
+   Se activa solo cuando el celular/PC del invitado está en modo oscuro.
+   Las ilustraciones PNG se recolorean con filter, no hace falta rehacerlas.
+   ========================================================================== */
+@media (prefers-color-scheme: dark) {
+
+  :root {
+    color-scheme: dark;
+
+    --page-bg: #111812;          /* fondo general */
+    --surface: #1b261e;          /* tarjetas, modal, marcos */
+    --btn-bg: #43694d;           /* verde más claro para botones sobre fondo oscuro */
+    --btn-hover: #355640;
+    --line-soft: rgba(245, 243, 233, 0.2);
+
+    /* Los textos que van sobre el fondo de la página pasan a crema */
+    --text-dark: #f1ede0;
+    --text-muted: #b4b9ac;
+    /* --green-bg, --cream-bg y --text-cream NO se tocan:
+       las secciones verdes y los botones crema siguen igual */
+  }
+
+  /* --- Fondos de página --- */
+  body,
+  .mobile-wrapper {
+    background-color: var(--page-bg);
+  }
+
+  /* --- Ilustraciones de línea oscura -> línea crema ---
+     brightness(0) las vuelve negras, invert(1) blancas y sepia les da el tono crema.
+     NO se aplica a indioSolari (ya es crema) ni a las fotos del carrusel. */
+  .car-illustration,      /* logo G&D */
+  .timeline-img,          /* iglesia y bola de espejos */
+  .dresscode-illustration,
+  .gifts-illustration {
+    filter: brightness(0) invert(1) sepia(0.12);
+    opacity: 0.92;
+  }
+
+  /* --- Botones --- */
+  .btn-primary,
+  .btn-copy,
+  .btn-instagram,
+  .carousel-btn {
+    background-color: var(--btn-bg);
+    color: var(--text-cream);
+  }
+
+  .btn-primary:hover,
+  .btn-copy:hover,
+  .btn-instagram:hover,
+  .carousel-btn:hover {
+    background-color: var(--btn-hover);
+  }
+
+  .btn-secondary {
+    border-color: var(--line-soft);
+  }
+
+  .btn-secondary:hover {
+    background-color: rgba(245, 243, 233, 0.1);
+  }
+
+  .btn-location:hover {
+    background-color: var(--btn-bg);
+    border-color: var(--btn-bg);
+  }
+
+  /* Botones crema sobre verde: el texto tiene que seguir siendo verde oscuro */
+  .btn-rsvp,
+  .btn-top {
+    color: #2d4734;
+  }
+
+  .btn-rsvp:hover,
+  .btn-top:hover {
+    color: #2d4734;
+  }
+
+  /* --- Tarjetas y bordes --- */
+  .dresscode-card,
+  .instagram-card {
+    border-color: var(--line-soft);
+  }
+
+  .dresscode-warning {
+    border-top-color: var(--line-soft);
+  }
+
+  .bank-details-box {
+    background-color: rgba(245, 243, 233, 0.07);
+  }
+
+  .instagram-main-title {
+    color: var(--text-dark);
+  }
+
+  /* --- Carrusel --- */
+  .instagram-frame {
+    background-color: var(--surface);
+    border-color: var(--btn-bg);
+  }
+
+  .dot {
+    background-color: rgba(245, 243, 233, 0.3);
+  }
+
+  .dot.active {
+    background-color: var(--text-cream);
+  }
+
+  /* --- Aviso de alias copiado --- */
+  .copy-toast {
+    color: #cfe8d6;
+  }
+
+  /* --- Modal de música --- */
+  .modal-card {
+    background-color: var(--surface);
+    border-color: var(--btn-bg);
+  }
+
+  .modal-overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  /* --- Botón flotante de música --- */
+  .music-float-btn {
+    background-color: var(--btn-bg);
+    border-color: var(--page-bg);
+  }
+}
