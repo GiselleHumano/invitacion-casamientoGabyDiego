@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boda Gabriela y Diego</title>
+  
+  <!-- Tipografías de Google Fonts: Alex Brush y Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Estilos CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Elemento de Audio de Fondo -->
+  <audio id="bg-music" loop>
+    <source src="/music/New West - Those Eyes.mp3" type="audio/mpeg">
+    Tu navegador no soporta el elemento de audio.
+  </audio>
+
+  <!-- Modal Inicial de Música -->
+  <div id="music-modal" class="modal-overlay">
+    <div class="modal-card">
+      <span class="modal-icon">🎵</span>
+      <h3 class="modal-title">¿Querés acompañar la invitación con música?</h3>
+      <div class="modal-buttons">
+        <button id="btn-play-music" class="btn-primary">Escuchar música</button>
+        <button id="btn-skip-music" class="btn-secondary">Omitir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botón Flotante de Control de Música -->
+  <button id="music-toggle" class="music-float-btn" aria-label="Controlar música" style="display: none;">
+    <svg id="music-icon-playing" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M9 18V5l12-2v13"></path>
+      <circle cx="6" cy="18" r="3"></circle>
+      <circle cx="18" cy="16" r="3"></circle>
+    </svg>
+  </button>
+
+  <main class="mobile-wrapper" id="inicio">
+
+    <!-- 1. Cabecera Verde con Onda al final -->
+    <header class="hero-header">
+      <p class="date-top">16 de Enero de 2027</p>
+      <h1 class="names">Gabriela y Diego</h1>
+      
+      <!-- Divisor de onda inferior -->
+      <div class="wave-bottom">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M0,0 C150,90 350,-40 500,40 C650,120 900,20 1200,60 L1200,120 L0,120 Z" fill="var(--cream-bg)"></path>
+        </svg>
+      </div>
+    </header>
+
+    <!-- Ilustración en PNG -->
+    <div class="illustration-container">
+      <img src="/img/logoIlustracion.png" alt="Ilustración Gabriela y Diego" class="car-illustration">
+    </div>
+
+    <!-- Sección del Contador -->
+    <section class="countdown-section">
+      <h2 class="sub-title">Falta muy poquito</h2>
+
+      <div class="countdown-container">
+        <div class="time-block">
+          <div class="box" id="days">00</div>
+          <span class="label">DÍAS</span>
+        </div>
+        <span class="separator">:</span>
+        <div class="time-block">
+          <div class="box" id="hours">00</div>
+          <span class="label">HORAS</span>
+        </div>
+        <span class="separator">:</span>
+        <div class="time-block">
+          <div class="box" id="minutes">00</div>
+          <span class="label">MIN</span>
+        </div>
+        <span class="separator">:</span>
+        <div class="time-block">
+          <div class="box" id="seconds">00</div>
+          <span class="label">SEG</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Flecha animada de scroll -->
+    <div class="scroll-down">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 9l-7 7-7-7"/>
+      </svg>
+    </div>
+
+    <!-- Sección de Cronograma / Eventos -->
+    <section class="timeline-section">
+      <div class="timeline">
+        
+        <!-- Item 1: Ceremonia -->
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <img src="/img/iglesiaIlustracion.png" alt="Ceremonia Religiosa" class="timeline-img">
+          </div>
+          <div class="timeline-center">
+            <div class="timeline-tick"></div>
+          </div>
+          <div class="timeline-right">
+            <span class="timeline-time">20:30 H</span>
+            <h3 class="timeline-title">Ceremonia</h3>
+            <p class="timeline-place">Parroquia Nuestra Señora del Carmen</p>
+            <p class="timeline-address">Puerto Argentino 4162</p>
+            <a href="https://maps.google.com/?q=Puerto+Argentino+4162" target="_blank" class="btn-location">UBICACIÓN</a>
+          </div>
+        </div>
+
+        <!-- Item 2: Fiesta / Salón -->
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <img src="/img/bolaIlustracion.png" alt="Fiesta Salón" class="timeline-img">
+          </div>
+          <div class="timeline-center">
+            <div class="timeline-tick"></div>
+          </div>
+          <div class="timeline-right">
+            <p class="timeline-subtitle">Si hay Boda, hay Joda </p>
+            <span class="timeline-time">21:00 A 06:00 H</span>
+            <h3 class="timeline-title">Celebremos juntos</h3>
+            <p class="timeline-place">Los Nogales Eventos</p>
+            <p class="timeline-address">Virrey del Pino</p>
+            <a href="https://maps.google.com/?q=Los+Nogales+Eventos+Virrey+del+Pino" target="_blank" class="btn-location">UBICACIÓN</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Sección Dress Code -->
+    <section class="dresscode-section">
+      <div class="dresscode-card">
+        <div class="dresscode-image-container">
+          <img src="/img/señorIlustracion.png" alt="Dress Code Formal Elegante" class="dresscode-illustration">
+        </div>
+        <h2 class="dresscode-main-title">DRESS CODE</h2>
+        <h3 class="dresscode-subtitle">Formal Elegante</h3>
+        <p class="dresscode-text">
+          Nos encantaría que nos acompañaras con un look acorde a esta celebración tan especial.
+        </p>
+        <div class="dresscode-warning">
+          <span>Evitar blanco y tonos demasiado claros</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Sección de Confirmación de Asistencia con Onda Arriba y Abajo -->
+    <section class="rsvp-section-green">
+      <!-- Divisor de onda superior -->
+      <div class="wave-top">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M0,0 C150,90 350,-40 500,40 C650,120 900,20 1200,60 L1200,120 L0,120 Z" fill="var(--cream-bg)"></path>
+        </svg>
+      </div>
+
+      <div class="rsvp-content">
+        <div class="rsvp-image-container">
+          <img src="/img/indioSolari.png" alt="Confirmación de asistencia" class="rsvp-illustration">
+        </div>
+        <h2 class="rsvp-title">¿Venís?</h2>
+        <a href="https://wa.me/5491153498245?text=%C2%A1Hola!%20Quiero%20confirmar%20mi%20asistencia%20para%20la%20boda!" target="_blank" class="btn-rsvp">
+          CONFIRMAR ASISTENCIA
+        </a>
+        <p class="rsvp-deadline">Antes del 16 de Diciembre 2026</p>
+        <div class="rsvp-kids-policy">
+          <h3 class="kids-title">RELAJATE, Es sin niños</h3>
+          <p class="kids-text">Invitación Exclusivamente para adultos</p>
+        </div>
+      </div>
+
+      <!-- Divisor de onda inferior -->
+      <div class="wave-bottom">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M0,0 C150,90 350,-40 500,40 C650,120 900,20 1200,60 L1200,120 L0,120 Z" fill="var(--cream-bg)"></path>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Sección Mesa de Regalos / Luna de Miel -->
+    <section class="gifts-section">
+      <div class="gifts-card">
+        <div class="gifts-image-container">
+          <img src="/img/regaloIlustracion.png" alt="Mesa de Regalos" class="gifts-illustration">
+        </div>
+        <h2 class="gifts-title">Regalos</h2>
+        <p class="gifts-text">
+          Estamos felices de poder festejar este momento con vos. Si querés acompañarnos con un regalo, podés colaborar con nuestra luna de miel.
+        </p>
+        <div class="bank-details-box">
+          <div class="bank-row">
+            <span class="bank-label">Alias:</span>
+            <span class="bank-value" id="alias-text">GABI.Y.DIEGO.2027</span>
+          </div>
+          <div class="bank-row">
+            <span class="bank-label">CBU:</span>
+            <span class="bank-value" id="cbu-text">0000003100012345678901</span>
+          </div>
+        </div>
+        <button id="btn-copy-alias" class="btn-copy">
+          COPIAR ALIAS
+        </button>
+        <span id="copy-message" class="copy-toast">¡Alias copiado al portapapeles!</span>
+      </div>
+    </section>
+
+    <!-- Sección Instagram / Carrusel -->
+    <section class="instagram-section">
+      <div class="instagram-card">
+        <h2 class="instagram-main-title">@losfundamentalistasok</h2>
+        <h3 class="instagram-subtitle">¡Preparate para nuestro casamiento!</h3>
+        <p class="instagram-text">
+          Ya podés seguir nuestra cuenta para ver todas las novedades del casamiento y etiquetarnos en tus fotos y videos.
+        </p>
+        <div class="carousel-container">
+          <button class="carousel-btn prev-btn" id="prev-slide" aria-label="Anterior">❮</button>
+          <div class="carousel-track-container">
+            <div class="carousel-track" id="carousel-track">
+              <div class="carousel-slide current-slide">
+                <div class="instagram-frame">
+                  <img src="https://holanews.com/wp-content/uploads/2026/06/rss-efe157ce21a28889a0981978275f8d2b37a470e930bw-1229x1536.jpg" alt="Foto 1" class="insta-img">
+                </div>
+              </div>
+              <div class="carousel-slide">
+                <div class="instagram-frame">
+                  <img src="https://www.cmtv.com.ar/imagenes_artistas/141.webp?Indio%20Solari" alt="Foto 2" class="insta-img">
+                </div>
+              </div>
+              <div class="carousel-slide">
+                <div class="instagram-frame">
+                  <img src="https://www.fundacionkonex.org/custom/web/data/imagenes/repositorio/2010/6/1/1132/20160316110742ae5e3ce40e0404a45ecacaaf05e5f735.jpg" alt="Foto 3" class="insta-img">
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-btn next-btn" id="next-slide" aria-label="Siguiente">❯</button>
+        </div>
+        <div class="carousel-dots" id="carousel-dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <a href="https://www.instagram.com/losfundamentalistasok/" target="_blank" class="btn-instagram">
+          VER ENLACE
+        </a>
+      </div>
+    </section>
+
+    <!-- 3. Sección Final de Cierre con Onda Arriba -->
+    <section class="final-section-green">
+      <!-- Divisor de onda superior -->
+      <div class="wave-top">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M0,0 C150,90 350,-40 500,40 C650,120 900,20 1200,60 L1200,120 L0,120 Z" fill="var(--cream-bg)"></path>
+        </svg>
+      </div>
+
+      <div class="final-content">
+        <p class="final-thanks-text">
+          Gracias por acompañarnos en este momento tan importante para nosotros.
+        </p>
+        <div class="final-names-container">
+          <span class="beating-heart">♡</span>
+          <h2 class="final-names">Gaby y Diego</h2>
+          <span class="beating-heart">♡</span>
+        </div>
+        <button id="btn-back-to-top" class="btn-top">
+          VOLVER AL INICIO
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

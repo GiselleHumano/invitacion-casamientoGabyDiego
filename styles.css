@@ -1,0 +1,1164 @@
+
+/* ==========================================================================
+   1. VARIABLES
+   ========================================================================== */
+:root {
+  /* Colores */
+  --green-bg: #2d4734;
+  --green-hover: #203325;
+  --cream-bg: #f5f3e9;
+  --white: #ffffff;
+  --text-cream: #f5f3e9;
+  --text-dark: #2d4734;
+  --text-muted: #555;
+
+  /* Tipografías */
+  --font-sans: 'Montserrat', sans-serif;
+  --font-script: 'Alex Brush', cursive;
+}
+
+
+/* ==========================================================================
+   2. RESET Y BASE
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--cream-bg);
+  color: var(--text-dark);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+
+/* ==========================================================================
+   3. LAYOUT GENERAL
+   ========================================================================== */
+
+/* Contenedor adaptable de borde a borde */
+.mobile-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--cream-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+/* ==========================================================================
+   4. BOTONES
+   ========================================================================== */
+
+/* --- Primario (modal) --- */
+.btn-primary {
+  background-color: var(--green-bg);
+  color: var(--text-cream);
+  border: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: var(--green-hover);
+  transform: scale(1.02);
+}
+
+/* --- Secundario (modal) --- */
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text-dark);
+  border: 1.5px solid var(--green-bg);
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(45, 71, 52, 0.08);
+}
+
+/* --- Ubicación (marco / outline) --- */
+.btn-location {
+  display: inline-block;
+  background-color: transparent;
+  color: var(--text-dark);
+  border: 1.5px solid var(--text-dark);
+  padding: 8px 20px;
+  border-radius: 2px;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  text-align: center;
+  max-width: 120px;
+  transition: all 0.2s ease;
+}
+
+.btn-location:hover {
+  background-color: var(--green-bg);
+  color: var(--text-cream);
+  border-color: var(--green-bg);
+}
+
+/* --- Confirmación RSVP (estilo crema) --- */
+.btn-rsvp {
+  display: inline-block;
+  background-color: var(--cream-bg);
+  color: var(--text-dark);
+  border: none;
+  padding: 14px 32px;
+  border-radius: 30px;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  margin-bottom: 15px;
+  transition: transform 0.2s ease, background-color 0.2s;
+}
+
+.btn-rsvp:hover {
+  background-color: var(--white);
+  transform: scale(1.03);
+}
+
+/* --- Copiar datos bancarios --- */
+.btn-copy {
+  width: 100%;
+  max-width: 360px;
+  background-color: var(--green-bg);
+  color: var(--text-cream);
+  border: none;
+  padding: 14px 20px;
+  border-radius: 25px;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-copy:hover {
+  background-color: var(--green-hover);
+  transform: scale(1.02);
+}
+
+/* --- Ver enlace de Instagram --- */
+.btn-instagram {
+  display: inline-block;
+  background-color: var(--green-bg);
+  color: var(--text-cream);
+  border: none;
+  padding: 12px 28px;
+  border-radius: 25px;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-instagram:hover {
+  background-color: var(--green-hover);
+  transform: scale(1.03);
+}
+
+/* --- Volver al inicio (estilo crema) --- */
+.btn-top {
+  background-color: var(--cream-bg);
+  color: var(--text-dark);
+  border: none;
+  padding: 12px 28px;
+  border-radius: 25px;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  margin-top: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-top:hover {
+  background-color: var(--white);
+  transform: scale(1.03);
+}
+
+
+/* ==========================================================================
+   5. SECCIONES
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   5.1 HERO (cabecera verde superior curva)
+   -------------------------------------------------------------------------- */
+.hero-header {
+  position: relative;
+  background-color: var(--green-bg);
+  width: 100%;
+  padding: 60px 20px 45px 20px;
+  text-align: center;
+
+}
+
+.date-top {
+  color: var(--text-cream);
+  font-size: 0.95rem;
+  letter-spacing: 2.5px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.names {
+  font-family: var(--font-script);
+  color: var(--text-cream);
+  font-size: clamp(3.5rem, 8vw, 5rem);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+/* Ilustración principal (PNG) */
+.illustration-container {
+  width: 100%;
+  max-width: 480px;
+  padding: 0 20px;
+  margin: 30px 0 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.car-illustration {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+
+/* --------------------------------------------------------------------------
+   5.2 CONTADOR
+   -------------------------------------------------------------------------- */
+.countdown-section {
+  width: 100%;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.sub-title {
+  font-family: var(--font-script);
+  font-size: clamp(2.8rem, 6vw, 4rem);
+  color: var(--text-dark);
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.countdown-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.time-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.box {
+  border: 2px solid var(--text-dark);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  font-weight: 700;
+  min-width: clamp(48px, 6vw, 64px);
+  text-align: center;
+  background-color: transparent;
+}
+
+.label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  margin-top: 6px;
+  letter-spacing: 1px;
+}
+
+.separator {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+/* Flecha animada */
+.scroll-down {
+  color: var(--text-dark);
+  animation: bounce 2s infinite;
+  cursor: pointer;
+}
+
+
+/* --------------------------------------------------------------------------
+   5.3 EVENTOS (Ceremonia y Salón)
+   -------------------------------------------------------------------------- */
+.event-section {
+  width: 100%;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.event-content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  max-width: 480px;
+  width: 100%;
+}
+
+/* Invierte el orden para el salón (texto izq, imagen der) */
+.event-content-wrapper.reverse-layout {
+  flex-direction: row-reverse;
+}
+
+.event-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.event-illustration {
+  width: 100%;
+  max-width: 130px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Línea vertical divisoria */
+.event-divider {
+  width: 2px;
+  height: 140px;
+  background-color: var(--text-dark);
+  opacity: 0.8;
+}
+
+.event-details {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.event-time {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+
+.event-title {
+  font-family: var(--font-script);
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: var(--text-dark);
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.event-place {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  line-height: 1.3;
+  margin-bottom: 14px;
+}
+
+
+/* --------------------------------------------------------------------------
+   5.4 TIMELINE
+   -------------------------------------------------------------------------- */
+.timeline-section {
+  width: 100%;
+  max-width: 520px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* Eje vertical */
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 25px;
+  bottom: 25px;
+  left: 42%; /* Coincide con el ancho de la columna izquierda */
+  width: 1.5px;
+  background-color: var(--text-dark);
+}
+
+/* Cada fila */
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* Lado izquierdo: ilustración */
+.timeline-left {
+  width: 42%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.timeline-img {
+  max-width: 150px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Conector horizontal */
+.timeline-center {
+  position: relative;
+  width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeline-tick {
+  position: absolute;
+  top: 25px; /* Centrado verticalmente respecto a la imagen */
+  left: 0;
+  width: 18px;
+  height: 1.5px;
+  background-color: var(--text-dark);
+}
+
+/* Lado derecho: textos y botón */
+.timeline-right {
+  width: 55%;
+  padding-left: 30px;
+  text-align: left;
+}
+
+.timeline-subtitle {
+  font-family: var(--font-script);
+  font-size: 1.6rem;
+  color: var(--text-dark);
+  margin-bottom: 2px;
+}
+
+.timeline-time {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.timeline-title {
+  font-family: var(--font-script);
+  font-size: 2.6rem;
+  font-weight: 400;
+  color: var(--text-dark);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.timeline-place {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 2px;
+}
+
+.timeline-address {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+
+/* --------------------------------------------------------------------------
+   5.5 DRESS CODE
+   -------------------------------------------------------------------------- */
+.dresscode-section {
+  width: 100%;
+  max-width: 520px;
+  margin: 50px auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.dresscode-card {
+  width: 100%;
+  text-align: center;
+  padding: 40px 20px;
+  border: 1.5px solid rgba(45, 71, 52, 0.2);
+  border-radius: 16px;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dresscode-image-container {
+  width: 100%;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.dresscode-illustration {
+  max-width: 160px;
+  height: auto;
+  object-fit: contain;
+}
+
+.dresscode-main-title {
+  font-family: var(--font-sans);
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.dresscode-subtitle {
+  font-family: var(--font-script);
+  font-size: 3rem;
+  font-weight: 400;
+  color: var(--text-dark);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.dresscode-text {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  line-height: 1.5;
+  max-width: 360px;
+  margin-bottom: 20px;
+}
+
+/* Aviso especial para el color blanco */
+.dresscode-warning {
+  border-top: 1px dashed rgba(45, 71, 52, 0.3);
+  padding-top: 15px;
+  width: 80%;
+}
+
+.dresscode-warning span {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--text-dark);
+  text-transform: uppercase;
+}
+
+
+/* --------------------------------------------------------------------------
+   5.6 RSVP (fondo verde ancho total)
+   -------------------------------------------------------------------------- */
+.rsvp-section-green {
+  position: relative;
+  width: 100%;
+  background-color: var(--green-bg);
+  color: var(--text-cream);
+  padding: 60px 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.rsvp-content {
+  max-width: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rsvp-image-container {
+  width: 100%;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.rsvp-illustration {
+  max-width: 22rem;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Pregunta "¿Venís?" */
+.rsvp-title {
+  font-family: var(--font-script);
+  font-size: clamp(3rem, 7vw, 4rem);
+  font-weight: 400;
+  color: var(--text-cream);
+  margin-bottom: 25px;
+  line-height: 1;
+}
+
+/* Fecha límite */
+.rsvp-deadline {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--text-cream);
+  opacity: 0.9;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+
+/* Aviso sin niños */
+.rsvp-kids-policy {
+  border-top: 1px solid rgba(245, 243, 233, 0.25);
+  padding-top: 30px;
+  width: 100%;
+}
+
+.kids-title {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--text-cream);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.kids-text {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--text-cream);
+  opacity: 0.85;
+}
+
+
+/* --------------------------------------------------------------------------
+   5.7 REGALOS
+   -------------------------------------------------------------------------- */
+.gifts-section {
+  width: 100%;
+  max-width: 520px;
+  margin: 50px auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.gifts-card {
+  width: 100%;
+  text-align: center;
+  padding: 40px 24px;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gifts-image-container {
+  width: 100%;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.gifts-illustration {
+  max-width: 15rem;
+  height: auto;
+  object-fit: contain;
+}
+
+.gifts-title {
+  font-family: var(--font-script);
+  font-size: 3.2rem;
+  font-weight: 400;
+  color: var(--text-dark);
+  line-height: 1;
+  margin-bottom: 15px;
+}
+
+.gifts-text {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  line-height: 1.5;
+  max-width: 380px;
+  margin-bottom: 25px;
+}
+
+/* Caja de datos bancarios */
+.bank-details-box {
+  width: 100%;
+  max-width: 360px;
+  background-color: rgba(45, 71, 52, 0.05);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bank-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+}
+
+.bank-label {
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.bank-value {
+  font-weight: 600;
+  color: var(--text-dark);
+  letter-spacing: 0.5px;
+  user-select: all;
+}
+
+/* Aviso de copiado exitoso */
+.copy-toast {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--green-bg);
+  margin-top: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.copy-toast.show {
+  opacity: 1;
+}
+
+
+/* --------------------------------------------------------------------------
+   5.8 INSTAGRAM / CARRUSEL
+   -------------------------------------------------------------------------- */
+.instagram-section {
+  width: 100%;
+  max-width: 520px;
+  margin: 50px auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.instagram-card {
+  width: 100%;
+  text-align: center;
+  padding: 40px 20px;
+  border: 1.5px solid rgba(45, 71, 52, 0.2);
+  border-radius: 16px;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.instagram-main-title {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--green-bg);
+  margin-bottom: 8px;
+}
+
+.instagram-subtitle {
+  font-family: var(--font-script);
+  font-size: 2.8rem;
+  font-weight: 400;
+  color: var(--text-dark);
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+
+.instagram-text {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--text-dark);
+  line-height: 1.5;
+  max-width: 360px;
+  margin-bottom: 25px;
+}
+
+/* Carrusel */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.carousel-track-container {
+  overflow: hidden;
+  width: 100%;
+  border-radius: 12px;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+  width: 100%;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 5px;
+}
+
+/* Marco verde para cada foto */
+.instagram-frame {
+  border: 3px solid var(--green-bg);
+  border-radius: 12px;
+  padding: 6px;
+  background-color: var(--cream-bg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.insta-img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+}
+
+/* Botones de navegación (flechas) */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--green-bg);
+  color: var(--text-cream);
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.carousel-btn:hover {
+  background-color: var(--green-hover);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prev-btn { left: -15px; }
+.next-btn { right: -15px; }
+
+/* Indicadores de puntos */
+.carousel-dots {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 25px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background-color: rgba(45, 71, 52, 0.3);
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.dot.active {
+  background-color: var(--green-bg);
+  width: 10px;
+  height: 10px;
+}
+
+
+/* --------------------------------------------------------------------------
+   5.9 CIERRE (fondo verde)
+   -------------------------------------------------------------------------- */
+.final-section-green {
+  position: relative;
+  width: 100%;
+  background-color: var(--green-bg);
+  color: var(--text-cream);
+  padding: 70px 20px 100px 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.final-content {
+  max-width: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+.final-thanks-text {
+  font-family: var(--font-sans);
+  font-size: 1.3rem;
+  color: var(--text-cream);
+  line-height: 1.6;
+  max-width: 380px;
+  margin: 0;
+  opacity: 0.95;
+}
+
+/* Nombres y corazones */
+.final-names-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 10px;
+  flex-wrap: nowrap;
+}
+
+.final-names {
+  font-family: var(--font-script);
+  font-size: clamp(3.5rem, 10vw, 5.2rem);
+  font-weight: 400;
+  color: var(--text-cream);
+  line-height: 1;
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* Corazón con latido */
+.beating-heart {
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  color: var(--text-cream);
+  display: inline-block;
+  animation: heartbeat 1.4s infinite ease-in-out;
+  transform-origin: center;
+}
+
+.final-names-container .beating-heart:last-child {
+  animation-delay: 0.15s;
+}
+
+
+/* ==========================================================================
+   6. DIVISORES DE ONDAS (relieve ondulado)
+   ========================================================================== */
+.wave-top,
+.wave-bottom {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  line-height: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 20'%3E%3Cpath d='M0 20 C10 20 10 0 20 0 S30 20 40 20 Z' fill='%232d4734'/%3E%3C/svg%3E") repeat-x bottom / 40px 20px;
+}
+
+/* Sobresale hacia arriba, pegada al borde superior de la sección verde */
+.wave-top {
+  bottom: 100%;
+}
+
+/* Sobresale hacia abajo, pegada al borde inferior de la sección verde */
+.wave-bottom {
+  top: 100%;
+  transform: rotate(180deg);
+}
+
+/* El SVG del HTML ya no hace falta */
+.wave-top svg,
+.wave-bottom svg {
+  display: none;
+}
+
+
+/* ==========================================================================
+   7. COMPONENTES FLOTANTES
+   ========================================================================== */
+
+/* --- Modal (cartel inicial) --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal-card {
+  background-color: var(--cream-bg);
+  border: 2px solid var(--green-bg);
+  border-radius: 16px;
+  padding: 30px 24px;
+  text-align: center;
+  max-width: 340px;
+  width: 100%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modal-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.modal-title {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.modal-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* --- Botón flotante de música --- */
+.music-float-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--green-bg);
+  color: var(--text-cream);
+  border: 2px solid var(--cream-bg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 900;
+  transition: transform 0.2s ease, background-color 0.2s;
+}
+
+.music-float-btn:hover {
+  transform: scale(1.08);
+}
+
+.music-float-btn.is-playing {
+  animation: pulse-music 2s infinite ease-in-out;
+}
+
+
+/* ==========================================================================
+   8. ANIMACIONES (KEYFRAMES)
+   ========================================================================== */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-8px); }
+  60% { transform: translateY(-4px); }
+}
+
+@keyframes pulse-music {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heartbeat {
+  0%   { transform: scale(1); }
+  14%  { transform: scale(1.25); }
+  28%  { transform: scale(1); }
+  42%  { transform: scale(1.25); }
+  70%  { transform: scale(1); }
+  100% { transform: scale(1); }
+}
+
+
+/* ==========================================================================
+   9. RESPONSIVE
+   ========================================================================== */
+@media (min-width: 768px) {
+  .hero-header {
+    padding-top: 80px;
+    padding-bottom: 60px;
+  }
+
+  .illustration-container {
+    max-width: 520px;
+    margin: 40px 0 30px 0;
+  }
+
+  .countdown-container {
+    gap: 18px;
+  }
+}
