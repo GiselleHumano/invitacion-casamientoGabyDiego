@@ -15,10 +15,10 @@
   /* Tipografías */
   --font-sans: 'Montserrat', sans-serif;
   --font-script: 'Alex Brush', cursive;
-  color-scheme: light; 
+color-scheme: only light;
 }
    html {
-     color-scheme: only light;
+color-scheme: only light;
      background-color: #f5f3e9;
    }
 .reveal {
