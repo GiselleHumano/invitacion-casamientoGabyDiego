@@ -16,7 +16,11 @@
   --font-sans: 'Montserrat', sans-serif;
   --font-script: 'Alex Brush', cursive;
 }
-
+.green-heart {
+  color: var(--green-bg); /* O usa tu color hexadecimal #2D4734 */
+  font-size: 1.5rem;      /* Ajustá el tamaño a tu gusto */
+  display: inline-block;
+}
 
 /* ==========================================================================
    2. RESET Y BASE
