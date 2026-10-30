@@ -15,9 +15,9 @@
   /* Tipografías */
   --font-sans: 'Montserrat', sans-serif;
   --font-script: 'Alex Brush', cursive;
+  color-scheme: light; 
 }
 
-/* Estado inicial: invisible y un poquito corrido hacia abajo */
 .reveal {
   opacity: 0;
   transform: translateY(30px);
