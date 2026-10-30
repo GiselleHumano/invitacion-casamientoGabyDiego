@@ -50,7 +50,11 @@ color-scheme: only light;
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--cream-bg);
+  /* Ponemos tu imagen como fondo general */
+  background-image: url('/img/fondo-invitacion.jpg'); 
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   color: var(--text-dark);
   min-height: 100vh;
   overflow-x: hidden;
@@ -71,7 +75,8 @@ body {
 .mobile-wrapper {
   width: 100%;
   min-height: 100vh;
-  background-color: var(--cream-bg);
+  /* Lo ponemos transparente para que se luzca la imagen de fondo del body */
+  background-color: transparent; 
   display: flex;
   flex-direction: column;
   align-items: center;
