@@ -1193,29 +1193,10 @@ position: absolute;
 .timeline-img, 
 .dresscode-illustration, 
 .gifts-illustration {
-  filter: brightness(0) saturate(100%) invert(24%) sepia(23%) saturate(614%) hue-rotate(94deg) brightness(94%) contrast(92%);
+  filter: brightness(0) saturate(100%) invert(31%) sepia(21%) saturate(543%) hue-rotate(94deg) brightness(93%) contrast(90%) !important;
 }
 
+/* 2. La ilustración del RSVP (indioSolari.svg) que va sobre fondo verde, se mantiene clara */
 .rsvp-section-green .rsvp-illustration {
-  filter: brightness(0) saturate(100%) invert(98%) sepia(8%) saturate(399%) hue-rotate(323deg) brightness(102%) contrast(97%);
+  filter: brightness(0) saturate(100%) invert(98%) sepia(8%) saturate(399%) hue-rotate(323deg) brightness(102%) contrast(97%) !important;
 }
-
-/* ==========================================================================
-   10. ADAPTACIÓN A MODO OSCURO (Mobile / Samsung Dark Mode)
-   ========================================================================== */
-@media (prefers-color-scheme: dark) {
-  /* Las ilustraciones estándar pasan a verse claras (#fffef6) sobre los fondos oscuros */
-  .car-illustration, 
-  .event-illustration, 
-  .timeline-img, 
-  .dresscode-illustration, 
-  .gifts-illustration {
-    filter: brightness(0) saturate(100%) invert(98%) sepia(8%) saturate(399%) hue-rotate(323deg) brightness(102%) contrast(97%);
-  }
-
-  /* La ilustración de RSVP (que en modo oscuro pasará a tener fondo claro invertido) pasa a color verde oscuro */
-  .rsvp-section-green .rsvp-illustration {
-    filter: brightness(0) saturate(100%) invert(24%) sepia(23%) saturate(614%) hue-rotate(94deg) brightness(94%) contrast(92%);
-  }
-}
-
