@@ -153,26 +153,65 @@ body {
 
 /* --- Confirmación RSVP (estilo crema) --- */
 .btn-rsvp {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  max-width: 100%;
   background-color: var(--cream-bg);
   color: var(--text-dark);
   border: none;
-  padding: 14px 32px;
-  border-radius: 30px;
+  padding: 18px 36px;
+  border-radius: 40px;
   font-family: var(--font-sans);
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 700;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
   text-decoration: none;
   text-align: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-  margin-bottom: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  margin-bottom: 20px;
   transition: transform 0.2s ease, background-color 0.2s;
+  /* Latido suave para llamar la atención */
+  animation: rsvp-pulse 2.4s ease-out infinite;
+}
+
+/* Ícono de "confirmado" (check dentro de un círculo), del mismo color que el texto */
+.btn-rsvp::before {
+  content: "";
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  background-color: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm-1.5 14.5-4-4 1.4-1.4 2.6 2.6 5.6-5.6 1.4 1.4-7 7z'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm-1.5 14.5-4-4 1.4-1.4 2.6 2.6 5.6-5.6 1.4 1.4-7 7z'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
 .btn-rsvp:hover {
   background-color: var(--white);
-  transform: scale(1.03);
+  transform: scale(1.05);
+}
+
+@keyframes rsvp-pulse {
+  0%   { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25), 0 0 0 0 rgba(var(--cream-rgb), 0.6); }
+  70%  { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25), 0 0 0 18px rgba(var(--cream-rgb), 0); }
+  100% { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25), 0 0 0 0 rgba(var(--cream-rgb), 0); }
+}
+
+/* Celulares muy angostos: que el texto entre en una sola línea */
+@media (max-width: 360px) {
+  .btn-rsvp {
+    padding: 16px 20px;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    gap: 8px;
+  }
+  .btn-rsvp::before { width: 18px; height: 18px; }
+}
+
+/* Si la persona tiene activada la opción de reducir animaciones, no late */
+@media (prefers-reduced-motion: reduce) {
+  .btn-rsvp { animation: none; }
 }
 
 /* --- Copiar datos bancarios --- */
