@@ -1208,31 +1208,27 @@ position: absolute;
 }
 
 /* ==========================================================================
-   BLINDAJE TOTAL DE ILUSTRACIONES (EVITA INVERSIÓN AUTOMÁTICA EN ANDROID)
+   BLINDAJE ANTIAUTOMÁTICO PARA SAMSUNG / ANDROID
    ========================================================================== */
-
-/* 1. MODO CLARO: Bloqueamos cualquier alteración y aplicamos el verde institucional */
 .car-illustration, 
 .event-illustration, 
 .timeline-img, 
 .dresscode-illustration, 
 .gifts-illustration {
-  filter: brightness(0) saturate(100%) invert(31%) sepia(21%) saturate(692%) hue-rotate(101deg) brightness(94%) contrast(89%) !important;
-  opacity: 1 !important;
+  /* Aislar el elemento para que el navegador del celular no pueda aplicar filtros propios */
+  isolation: isolate !important;
+  -webkit-print-color-adjust: exact !important;
   color-scheme: only light !important;
-  forced-color-adjust: none !important;
 }
 
-/* 2. MODO OSCURO: Forzamos el color blanco puro */
+/* En modo oscuro, forzamos un contorno o brillo sutil para que nunca se queden negras */
 @media (prefers-color-scheme: dark) {
   .car-illustration, 
   .event-illustration, 
   .timeline-img, 
   .dresscode-illustration, 
   .gifts-illustration {
-    filter: brightness(0) invert(1) !important;
-    opacity: 0.95 !important;
-    color-scheme: dark !important;
-    forced-color-adjust: none !important;
+    filter: invert(1) brightness(2) drop-shadow(0 0 2px rgba(255,255,255,0.8)) !important;
+    isolation: isolate !important;
   }
 }
