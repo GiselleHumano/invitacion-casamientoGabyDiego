@@ -1208,27 +1208,71 @@ position: absolute;
 }
 
 /* ==========================================================================
-   BLINDAJE ANTIAUTOMÁTICO PARA SAMSUNG / ANDROID
+   ILUSTRACIONES CON MÁSCARAS CSS (A PRUEBA DE MODO OSCURO Y SAMSUNG)
    ========================================================================== */
 .car-illustration, 
 .event-illustration, 
 .timeline-img, 
 .dresscode-illustration, 
-.gifts-illustration {
-  /* Aislar el elemento para que el navegador del celular no pueda aplicar filtros propios */
-  isolation: isolate !important;
-  -webkit-print-color-adjust: exact !important;
-  color-scheme: only light !important;
+.gifts-illustration,
+.rsvp-illustration {
+  background-color: var(--text-dark); /* Verde institucional #36533f por defecto */
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  display: inline-block;
 }
 
-/* En modo oscuro, forzamos un contorno o brillo sutil para que nunca se queden negras */
+/* Tamaños específicos para cada sección */
+.car-illustration {
+  width: 100%;
+  max-width: 480px;
+  height: 160px;
+  margin: 30px auto;
+}
+
+.event-illustration {
+  width: 100%;
+  max-width: 130px;
+  height: 130px;
+}
+
+.timeline-img {
+  width: 100%;
+  max-width: 150px;
+  height: 130px;
+}
+
+.dresscode-illustration {
+  width: 100%;
+  max-width: 160px;
+  height: 160px;
+}
+
+.gifts-illustration {
+  width: 100%;
+  max-width: 15rem;
+  height: 160px;
+}
+
+/* Excepción: RSVP va sobre fondo verde, por lo que siempre es blanco */
+.rsvp-section-green .rsvp-illustration {
+  width: 100%;
+  max-width: 22rem;
+  height: 180px;
+  background-color: #ffffff !important;
+}
+
+/* MODO OSCURO: Todas las ilustraciones pasan a blanco automáticamente */
 @media (prefers-color-scheme: dark) {
   .car-illustration, 
   .event-illustration, 
   .timeline-img, 
   .dresscode-illustration, 
   .gifts-illustration {
-    filter: invert(1) brightness(2) drop-shadow(0 0 2px rgba(255,255,255,0.8)) !important;
-    isolation: isolate !important;
+    background-color: #ffffff !important;
   }
 }
