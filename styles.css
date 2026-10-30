@@ -1208,20 +1208,27 @@ position: absolute;
 }
 
 /* ==========================================================================
-   ILUSTRACIONES FIJAS (RESISTENTES AL MODO OSCURO)
+   ILUSTRACIONES ADAPTATIVAS (CLARO Y OSCURO)
    ========================================================================== */
+
+/* Por defecto (Modo Claro): Se ven con su color original oscuro/negro */
 .car-illustration, 
 .event-illustration, 
 .timeline-img, 
 .dresscode-illustration, 
 .gifts-illustration {
-  /* Forzamos un color oscuro controlado que el modo oscuro del celular no puede alterar */
-  filter: brightness(0) saturate(100%) invert(18%) sepia(19%) saturate(545%) hue-rotate(94deg) brightness(93%) contrast(95%) !important;
+  filter: none !important;
   opacity: 1 !important;
 }
 
-/* La ilustración del RSVP sobre fondo verde */
-.rsvp-section-green .rsvp-illustration {
-  filter: brightness(0) saturate(100%) invert(98%) sepia(8%) saturate(399%) hue-rotate(323deg) brightness(102%) contrast(97%) !important;
-  opacity: 1 !important;
+/* Cuando el celu o el navegador fuerzan el Modo Oscuro: Se invierten a blanco automáticamente */
+@media (prefers-color-scheme: dark) {
+  .car-illustration, 
+  .event-illustration, 
+  .timeline-img, 
+  .dresscode-illustration, 
+  .gifts-illustration {
+    filter: brightness(0) invert(1) !important;
+    opacity: 0.95 !important;
+  }
 }
